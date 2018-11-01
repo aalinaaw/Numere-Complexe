@@ -1,5 +1,7 @@
-
 #pragma once
+#include <string>
+#include <cstring>
+
 class ComplexNumber
 {
 public:
@@ -7,7 +9,8 @@ public:
 	double get_real();
 	void set_imaginary(const double&);
 	double get_imaginary();
-	ComplexNumber() { m_real = 0; m_imaginary = 0; }
+	ComplexNumber(double real = 0, double imaginary = 0);
+	ComplexNumber(std::string);
 private:
 	double m_real, m_imaginary;
 };
