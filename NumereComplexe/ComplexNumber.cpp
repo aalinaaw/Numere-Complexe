@@ -21,6 +21,20 @@ double ComplexNumber::get_imaginary()
 	return m_imaginary;
 }
 
+ComplexNumber& ComplexNumber::operator=(const ComplexNumber & a)
+{
+	this->m_real = a.m_real;
+	this->m_imaginary = a.m_imaginary;
+	return *this;
+}
+
+ComplexNumber & ComplexNumber::operator=(const double & a)
+{
+	this->m_real = a;
+	this->m_imaginary = 0;
+	return *this;
+}
+
 ComplexNumber ComplexNumber::Conjugate()
 {
 	ComplexNumber c(*this);
