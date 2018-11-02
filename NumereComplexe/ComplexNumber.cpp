@@ -88,4 +88,11 @@ ComplexNumber::ComplexNumber(std::string string)
 		m_imaginary = sign * std::stod(string.substr(start_pos, string.length()-start_pos));
 	}
 
+
+}
+
+ComplexNumber::ComplexNumber(const ComplexNumber & z)
+{
+	m_real = z.m_real;
+	m_imaginary = z.m_imaginary;
 }
