@@ -96,3 +96,58 @@ ComplexNumber::ComplexNumber(const ComplexNumber & z)
 	m_real = z.m_real;
 	m_imaginary = z.m_imaginary;
 }
+
+ComplexNumber operator+(const ComplexNumber & a, const ComplexNumber & b)
+{
+	ComplexNumber c;
+	c.m_real = a.m_real + b.m_real;
+	c.m_imaginary = a.m_imaginary + b.m_imaginary;
+	return c;
+}
+
+ComplexNumber operator+(double a, const ComplexNumber & b)
+{
+	ComplexNumber c;
+	c.m_real = a + b.m_real;
+	c.m_imaginary = b.m_imaginary;
+	return c;
+}
+
+ComplexNumber operator+(const ComplexNumber & a, double b)
+{
+	ComplexNumber c;
+	c.m_real = a.m_real + b;
+	c.m_imaginary = a.m_imaginary;
+	return c;
+}
+
+ComplexNumber operator-(const ComplexNumber & a, const ComplexNumber & b)
+{
+	ComplexNumber c;
+	c.m_real = a.m_real - b.m_real;
+	c.m_imaginary = a.m_imaginary - b.m_imaginary;
+	return c;
+}
+
+ComplexNumber operator-(double a, const ComplexNumber & b)
+{
+	ComplexNumber c;
+	c.m_real = a - b.m_real;
+	c.m_imaginary = -b.m_imaginary;
+	return c;
+}
+
+ComplexNumber operator-(const ComplexNumber & a, double b)
+{
+	ComplexNumber c;
+	c.m_real = a.m_real - b;
+	c.m_imaginary = a.m_imaginary;
+	return c;
+}
+
+
+
+
+
+
+
