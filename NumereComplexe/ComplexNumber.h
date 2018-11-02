@@ -29,6 +29,16 @@ public:
 	friend ComplexNumber operator-(double, const ComplexNumber&);
 	friend ComplexNumber operator-(const ComplexNumber&, double);
 
+	friend ComplexNumber operator*(const ComplexNumber&, const ComplexNumber&);
+	friend ComplexNumber operator*(double, const ComplexNumber&);
+	friend ComplexNumber operator*(const ComplexNumber&, double);
+
+	ComplexNumber Conjugate();
+
+	friend ComplexNumber operator/(const ComplexNumber&, const ComplexNumber&);
+	friend ComplexNumber operator/(double, const ComplexNumber&);
+	friend ComplexNumber operator/(const ComplexNumber&, double);
+
 private:
 	double m_real, m_imaginary;
 };

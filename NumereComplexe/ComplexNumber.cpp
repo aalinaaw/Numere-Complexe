@@ -21,6 +21,13 @@ double ComplexNumber::get_imaginary()
 	return m_imaginary;
 }
 
+ComplexNumber ComplexNumber::Conjugate()
+{
+	ComplexNumber c(*this);
+	c.m_imaginary = -c.m_imaginary;
+	return c;
+}
+
 ComplexNumber::ComplexNumber(double real, double imaginary) :
 	m_real(real),
 	m_imaginary(imaginary)
@@ -144,6 +151,61 @@ ComplexNumber operator-(const ComplexNumber & a, double b)
 	c.m_imaginary = a.m_imaginary;
 	return c;
 }
+
+ComplexNumber operator*(const ComplexNumber & a, const ComplexNumber & b)
+{
+	ComplexNumber c;
+	c.m_real = a.m_real * b.m_real - a.m_imaginary * b.m_imaginary;
+	c.m_imaginary = a.m_real * b.m_imaginary + a.m_imaginary * b.m_real;
+	return c;
+}
+
+ComplexNumber operator*(double a, const ComplexNumber & b)
+{
+	ComplexNumber c;
+	c.m_real = a * b.m_real;
+	c.m_imaginary = a * b.m_imaginary;
+	return c;
+}
+
+ComplexNumber operator*(const ComplexNumber & a, double b)
+{
+	ComplexNumber c;
+	c.m_real = a.m_real * b;
+	c.m_imaginary = a.m_imaginary * b;
+	return c;
+}
+
+ComplexNumber operator/(const ComplexNumber & a, const ComplexNumber & b)
+{
+	ComplexNumber c, tempa(a), tempb(b);
+	tempa = tempb.Conjugate() * tempa;
+	tempb = tempb.Conjugate() * tempb;
+	c.m_real = tempa.m_real / tempb.m_real;
+	c.m_imaginary = tempa.m_imaginary / tempb.m_real;
+	return c;
+}
+
+ComplexNumber operator/(double a, const ComplexNumber & b)
+{
+	ComplexNumber c, tempb(b), tempa(a, 0);
+	tempa = tempa * tempb.Conjugate();
+	tempb = tempb * tempb.Conjugate();
+	c.m_real = tempa.m_real / tempb.m_real;
+	c.m_imaginary = tempa.m_imaginary / tempb.m_real;
+	return c;
+}
+
+ComplexNumber operator/(const ComplexNumber & a, double b)
+{
+	ComplexNumber c;
+	c.m_real = a.m_real / b;
+	c.m_imaginary = a.m_imaginary / b;
+	return c;
+}
+
+
+
 
 
 
