@@ -204,6 +204,22 @@ ComplexNumber operator/(const ComplexNumber & a, double b)
 	return c;
 }
 
+ComplexNumber operator^(const ComplexNumber & a, int b)
+{
+	ComplexNumber c(a);
+	if (b == 0)
+	{
+		c.m_real = 1;
+		c.m_imaginary = 0;
+		return c;
+	}
+	for (int i = 1; i < b; i++)
+	{
+		c = c * a;
+	}
+	return c;
+}
+
 
 
 
