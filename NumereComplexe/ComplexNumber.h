@@ -43,7 +43,17 @@ public:
 	ComplexNumber& operator=(const ComplexNumber &);
 	ComplexNumber& operator=(const double &);
 
+	ComplexNumber& operator+=(const ComplexNumber &);
+	ComplexNumber& operator+=(const double &);
 
+	ComplexNumber& operator-=(const ComplexNumber &);
+	ComplexNumber& operator-=(const double &);
+
+	ComplexNumber& operator*=(const ComplexNumber &);
+	ComplexNumber& operator*=(const double &);
+
+	ComplexNumber& operator/=(const ComplexNumber &);
+	ComplexNumber& operator/=(const double &);
 
 	ComplexNumber Conjugate();
 

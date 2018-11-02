@@ -35,6 +35,57 @@ ComplexNumber & ComplexNumber::operator=(const double & a)
 	return *this;
 }
 
+ComplexNumber & ComplexNumber::operator+=(const ComplexNumber & a)
+{
+	*this = *this + a;
+	return *this;
+}
+
+ComplexNumber & ComplexNumber::operator+=(const double & a)
+{
+	this->m_real += a;
+	return *this;
+	
+}
+
+ComplexNumber & ComplexNumber::operator-=(const ComplexNumber & a)
+{
+	*this = *this - a;
+	return *this;
+}
+
+ComplexNumber & ComplexNumber::operator-=(const double & a)
+{
+	this->m_real -= a;
+	return *this;
+}
+
+ComplexNumber & ComplexNumber::operator*=(const ComplexNumber & a)
+{
+	*this = *this * a;
+	return *this;
+}
+
+ComplexNumber & ComplexNumber::operator*=(const double & a)
+{
+	this->m_real *= a;
+	this->m_imaginary *= a;
+	return *this;
+}
+
+ComplexNumber & ComplexNumber::operator/=(const ComplexNumber & a)
+{
+	*this = *this / a;
+	return *this;
+}
+
+ComplexNumber & ComplexNumber::operator/=(const double & a)
+{
+	this->m_real /= a;
+	this->m_imaginary /= a;
+	return *this;
+}
+
 ComplexNumber ComplexNumber::Conjugate()
 {
 	ComplexNumber c(*this);
