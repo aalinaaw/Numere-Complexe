@@ -100,6 +100,12 @@ ComplexNumber & ComplexNumber::operator/=(const double & a)
 	return *this;
 }
 
+ComplexNumber::operator std::string() const
+{
+	ComplexNumber c(*this);
+	return c.ToString();
+}
+
 ComplexNumber ComplexNumber::Conjugate()
 {
 	ComplexNumber c(*this);
@@ -351,13 +357,50 @@ bool operator==(const ComplexNumber & a, double b)
 	 else
 		 return true;
  }
- 
- /*
- double square_root()
- {
-	 ComplexNumber c = *this;
-	 double modulus = sqrt(c.m_real ^ 2 + c.m_imaginary ^ 2);
-	 return modulus;
- }*/
 
+ double ComplexNumber::modulus() 
+ {
+	 return sqrt(this->m_real * this->m_real + this->m_imaginary * this->m_imaginary);
+ }
+
+ ComplexNumber ComplexNumber::square_root(const ComplexNumber & a, int k)
+ {
+	 ComplexNumber ca(a);
+	 double phi = atan(a.m_imaginary / a.m_real), r = ca.modulus();
+	 ComplexNumber z;
+	 z.m_real = sqrt(r) * cos((phi + 2 * k * PI) / 2);
+	 z.m_imaginary = sqrt(r) * sin((phi + 2 * k * PI) / 2);
+	 return z;
+ }
+
+ std::string ComplexNumber::ToString()
+ {
+	 std::string str = "";
+	 if (this->m_real != 0)
+	 {
+		 str += std::to_string(this->m_real);
+	 }
+	 if (this->m_imaginary != 0)
+	 {
+		 if (this->m_imaginary > 0)
+		 {
+			 if (this->m_real != 0)
+			 {
+				 str += "+i*";
+			 }
+			 else 
+			 {
+				 str += "i*";
+			 }
+			 str += std::to_string(this->m_imaginary);
+		 }
+		 else
+		 {
+			 str += "-i*";
+			 str += std::to_string(abs(this->m_imaginary));
+		 }
+	 }
+	 return str;
+ }
+ 
  

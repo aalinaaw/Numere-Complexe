@@ -3,6 +3,8 @@
 #include <cstring>
 #include <math.h>
 
+#define PI 3.141592
+
 class ComplexNumber
 {
 public:
@@ -65,10 +67,17 @@ public:
 	ComplexNumber& operator/=(const ComplexNumber &);
 	ComplexNumber& operator/=(const double &);
 
+	operator std::string() const;
+
 	ComplexNumber Conjugate();
 
 	//friend functions
-	//double square_root();
+	double modulus();
+	static ComplexNumber square_root(const ComplexNumber &, int);
+
+	std::string ToString();
+
+
 
 private:
 	double m_real, m_imaginary;
