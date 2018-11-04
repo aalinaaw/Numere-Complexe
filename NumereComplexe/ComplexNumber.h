@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <cstring>
+#include <math.h>
 
 class ComplexNumber
 {
@@ -39,6 +40,15 @@ public:
 
 	friend ComplexNumber operator^(const ComplexNumber&, int);
 
+	//relational operators
+	friend bool operator==(const ComplexNumber&, const ComplexNumber&);
+	friend bool operator==(double, const ComplexNumber&);
+	friend bool operator==(const ComplexNumber&, double);
+
+	friend bool operator!=(const ComplexNumber&, const ComplexNumber&);
+	friend bool operator!=(double, const ComplexNumber&);
+	friend bool operator!=(const ComplexNumber&, double);
+
 	//compound operators
 	ComplexNumber& operator=(const ComplexNumber &);
 	ComplexNumber& operator=(const double &);
@@ -56,6 +66,9 @@ public:
 	ComplexNumber& operator/=(const double &);
 
 	ComplexNumber Conjugate();
+
+	//friend functions
+	//double square_root();
 
 private:
 	double m_real, m_imaginary;

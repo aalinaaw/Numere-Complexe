@@ -285,12 +285,64 @@ ComplexNumber operator^(const ComplexNumber & a, int b)
 	return c;
 }
 
+bool operator==(const ComplexNumber & a, const ComplexNumber & b)
+{
+	if (a.m_real == b.m_real && a.m_imaginary == b.m_imaginary)
+		return true;
+	else
+		return false;
 
+}
 
+bool operator==(double a, const ComplexNumber & b)
+{
+	if (a == b.m_real && b.m_imaginary == 0)
+		return true;
+	else
+		return false;
+	
+}
 
+bool operator==(const ComplexNumber & a, double b)
+{
+	if (a.m_real == b && a.m_imaginary == 0)
+		return true;
+	else
+		return false;
+	
+}
 
+ bool operator!=(const ComplexNumber & a, const ComplexNumber & b)
+ {
+	 if (a.m_real == b.m_real && a.m_imaginary == b.m_imaginary)
+		 return false;
+	 else
+		 return true;
+	 
+ }
 
+ bool operator!=(double a, const ComplexNumber & b)
+ {
+	 if (a == b.m_real && b.m_imaginary == 0)
+		 return false;
+	 else
+		 return true;
+ }
 
+ bool operator!=(const ComplexNumber & a, double b)
+ {
+	 if (a.m_real == b && a.m_imaginary == 0)
+		 return false;
+	 else
+		 return true;
+ }
+ 
+ /*
+ double square_root()
+ {
+	 ComplexNumber c = *this;
+	 double modulus = sqrt(c.m_real ^ 2 + c.m_imaginary ^ 2);
+	 return modulus;
+ }*/
 
-
-
+ 
