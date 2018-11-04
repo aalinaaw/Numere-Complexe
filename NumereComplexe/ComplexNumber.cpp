@@ -183,10 +183,6 @@ ComplexNumber::ComplexNumber(const ComplexNumber & z)
 	m_imaginary = z.m_imaginary;
 }
 
-ComplexNumber operator+()
-{
-	return ComplexNumber();
-}
 
 ComplexNumber operator+(const ComplexNumber & a, const ComplexNumber & b)
 {
