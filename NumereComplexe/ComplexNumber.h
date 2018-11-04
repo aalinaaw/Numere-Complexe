@@ -18,8 +18,8 @@ public:
 	double get_imaginary();
 	
 	//unary operators
-	/*friend ComplexNumber operator+();
-	friend ComplexNumber operator-();*/
+	ComplexNumber operator+();
+	ComplexNumber operator-();
 
 	//binary operators
 	friend ComplexNumber operator+(const ComplexNumber&, const ComplexNumber&);

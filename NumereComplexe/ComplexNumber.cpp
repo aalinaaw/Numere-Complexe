@@ -21,6 +21,20 @@ double ComplexNumber::get_imaginary()
 	return m_imaginary;
 }
 
+ComplexNumber ComplexNumber::operator+()
+{
+	ComplexNumber c(*this);
+	return c;
+}
+
+ComplexNumber ComplexNumber::operator-()
+{
+	ComplexNumber c(*this);
+	c.m_real = -c.m_real;
+	c.m_imaginary = -c.m_imaginary;
+	return c;
+}
+
 ComplexNumber& ComplexNumber::operator=(const ComplexNumber & a)
 {
 	this->m_real = a.m_real;
@@ -167,6 +181,11 @@ ComplexNumber::ComplexNumber(const ComplexNumber & z)
 {
 	m_real = z.m_real;
 	m_imaginary = z.m_imaginary;
+}
+
+ComplexNumber operator+()
+{
+	return ComplexNumber();
 }
 
 ComplexNumber operator+(const ComplexNumber & a, const ComplexNumber & b)
