@@ -69,6 +69,9 @@ public:
 
 	operator std::string() const;
 
+	friend std::istream & operator>>(std::istream & stream, ComplexNumber &);
+	friend std::ostream & operator<<(std::ostream & stream, const ComplexNumber &);
+
 	ComplexNumber Conjugate();
 
 	//friend functions

@@ -106,6 +106,30 @@ ComplexNumber::operator std::string() const
 	return c.ToString();
 }
 
+std::istream & operator>>(std::istream & stream, ComplexNumber & z)
+{
+	std::string str;
+	char ch; stream.get(ch);
+	while (ch != '\n' && !stream.eof()) {
+		str += ch;
+		stream.get(ch);
+	}
+	ComplexNumber temp(str);
+	z.m_real = temp.m_real;
+	z.m_imaginary = temp.m_imaginary;
+
+	return stream;
+}
+
+std::ostream & operator<<(std::ostream & stream, const ComplexNumber & z)
+{
+	ComplexNumber temp(z);
+	stream << temp.ToString();
+	return stream;
+}
+
+
+
 ComplexNumber ComplexNumber::Conjugate()
 {
 	ComplexNumber c(*this);
